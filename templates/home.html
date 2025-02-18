@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            margin: 10;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus {
+            border-color: #74ebd5;
+            outline: none;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.05);
+        }
+
+        .submit-button:active {
+            transform: scale(1);
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 15px 20px;
+            }
+
+            .form-container h2 {
+                font-size: 20px;
+            }
+
+            .submit-button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="form-container">
+        <h2>Breast Cancer Predictions</h2>
+        <form method="post" action="/predict">
+            <div class="form-group">
+                <h2>{{ prediction_text }}
+
+                    <br><br>
+                            {% if breast_image %}
+                            <img id="breast_image" src="{{ breast_image }}" alt="Predicted Cancer Breast">
+                        {% endif %}
+                        </h2>
+
+
+            </div>
+            <div class="form-group">
+                <label for="radius">radius</label>
+                <input type="text" id="radius" name="radius" placeholder="Enter your text here">
+            </div>
+            <div class="form-group">
+                <label for="texture">texture</label>
+                <input type="text" id="texture" name="texture" placeholder="Enter your text here">
+            </div>
+            <div class="form-group">
+                <label for="perimeter">perimeter</label>
+                <input type="text" id="perimeter" name="perimeter" placeholder="Enter your text here">
+            </div>
+            <div class="form-group">
+                <label for="area">area</label>
+                <input type="text" id="area" name="area" placeholder="Enter your text here">
+            </div>
+            <div class="form-group">
+                <label for="smoothness">smoothness</label>
+                <input type="text" id="smoothness" name="smoothness" placeholder="Enter your text here">
+            </div>
+            
+            <button type="submit" class="submit-button">Predict</button>
+        </form>
+       
+    </div>
+    
+    
+   
+</body>
+</html>
